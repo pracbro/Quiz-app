@@ -1,0 +1,125 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <style>
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/images/keyboard.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .register-container {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+    }
+
+    .register-container h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .register-container label {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      color: #ffffff;
+      padding: 10px 15px;
+    }
+
+    .form-control:focus {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.5);
+      color: #ffffff;
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-success {
+      background-color: rgba(40, 167, 69, 0.8);
+      border: none;
+      padding: 10px 20px;
+      width: 100%;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-success:hover {
+      background-color: rgba(40, 167, 69, 1);
+      transform: translateY(-2px);
+    }
+
+    .text-danger {
+      text-align: center;
+      font-weight: bold;
+      color: #ff6347;
+      background: rgba(255, 99, 71, 0.1);
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #ffffff;
+    }
+  </style>
+
+  <div class="register-container">
+    <h1>Quiz App Register</h1>
+
+    {% if error %}
+      <h4 class="text-danger">{{ error }}</h4>
+    {% endif %}
+
+    <form action="/register" method="POST">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Choose your username</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="exampleInputEmail1" 
+          aria-describedby="emailHelp" 
+          name="name" 
+          placeholder="Enter your username"
+          required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input 
+          type="password" 
+          class="form-control" 
+          id="exampleInputPassword1" 
+          name="password" 
+          placeholder="Enter your password"
+          required>
+      </div>
+      <button type="submit" class="btn btn-success">Register</button>
+    </form>
+    <footer>
+      <p>Join us today and start your quiz journey!</p>
+    </footer>
+  </div>
+{% endblock %}

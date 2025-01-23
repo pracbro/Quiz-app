@@ -1,0 +1,124 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-5" style="color: #1e3c72; font-weight: 600;">Leaderboard</h1>
+    
+    <div class="leaderboard-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="leaderboard-row gold">
+                    <td>🏆</td>
+                    <td>John Doe</td>
+                    <td>98.50%</td>
+                </tr>
+                <tr class="leaderboard-row silver">
+                    <td>🥈</td>
+                    <td>Jane Smith</td>
+                    <td>95.75%</td>
+                </tr>
+                <tr class="leaderboard-row bronze">
+                    <td>🥉</td>
+                    <td>Mike Johnson</td>
+                    <td>92.25%</td>
+                </tr>
+                <tr class="leaderboard-row">
+                    <td>4</td>
+                    <td>Sarah Williams</td>
+                    <td>88.00%</td>
+                </tr>
+                <tr class="leaderboard-row">
+                    <td>5</td>
+                    <td>David Brown</td>
+                    <td>85.50%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .leaderboard-container {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .table {
+        margin-bottom: 0;
+    }
+
+    .table thead th {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+        border: none;
+        padding: 15px;
+        font-weight: 600;
+    }
+
+    .table tbody tr {
+        transition: all 0.3s ease;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f8f9fa;
+        transform: scale(1.01);
+    }
+
+    .leaderboard-row td {
+        padding: 15px;
+        vertical-align: middle;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .gold {
+        background-color: rgba(255, 215, 0, 0.1);
+    }
+
+    .silver {
+        background-color: rgba(192, 192, 192, 0.1);
+    }
+
+    .bronze {
+        background-color: rgba(205, 127, 50, 0.1);
+    }
+
+    h1 {
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    h1::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+        .leaderboard-container {
+            padding: 10px;
+        }
+        
+        .table thead th,
+        .leaderboard-row td {
+            padding: 10px;
+        }
+    }
+</style>
+{% endblock %}

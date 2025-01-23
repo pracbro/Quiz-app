@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <h1>Quiz Time!</h1>
+    <form method="POST" action="/submit">
+        {% for q in questions %}
+            <div>
+                <p>{{loop.index}}. {{ q['question']}}</p>
+                {% for ans_id, ans in q['answers'].items() %}
+                    <input type="radio" name="{{ q['id'] }}" value="{{ ans_id }}">{{ ans }}<br>
+                {% endfor %}
+                <br>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
+

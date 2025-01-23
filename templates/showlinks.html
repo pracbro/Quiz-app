@@ -1,0 +1,43 @@
+
+{%macro show_links(user) %}
+<ul class="nav nav-pills bg-dark p-3">
+    <li class="nav-item">
+      <a class="nav-link active text-light" aria-current="page" href="{{ url_for('leaderboard') }}">Leaderboard</a>
+    </li>
+    <!-- <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+      <ul class="dropdown-menu ">
+        <li><a class="dropdown-item" href="#">Category 1</a></li>
+        <li><a class="dropdown-item" href="#">Category 2</a></li>
+        <li><a class="dropdown-item" href="#">Category 3</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Share</a></li>
+      </ul>
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-link active text-light" aria-current="page" href="{{ url_for('categories') }}">Home</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-light" href="{{ url_for('login') }}">Login</a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{{ url_for('register') }}">Register</a>
+    </li>
+
+    {% if user%}
+    <li class="nav-item">
+      <a class="nav-link text-light" href="#">{{ user['name']}}</a>
+    </li>
+    {% endif %}
+
+    <li class="nav-item">
+        <a class="nav-link text-light" href="{{ url_for('logout') }}">Logout</a>
+    </li>
+
+    <!-- <li class="nav-item">
+      <a class="nav-link disabled text-light    " aria-disabled="true">Logout</a>
+    </li> -->
+ </ul>
+{%endmacro%}
